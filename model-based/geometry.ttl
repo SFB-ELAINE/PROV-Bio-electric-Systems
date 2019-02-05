@@ -1,0 +1,196 @@
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix sw: <http://provenance.elaine.uni-rostock.de/sw>.
+@prefix da: <http://provenance.elaine.uni-rostock.de/da>.
+@prefix ma: <http://provenance.elaine.uni-rostock.de/ma>.
+@prefix mo: <http://provenance.elaine.uni-rostock.de/mo>.
+@prefix as: <http://provenance.elaine.uni-rostock.de/as>.
+@prefix ag: <http://provenance.elaine.uni-rostock.de/ag>.
+@prefix foaf: <http://xmlns.com/foaf/spec/#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+
+################################################################################
+# Software Entities
+sw:mm
+    a prov:Entity;
+    prov:label "Materialise Mimics v19";
+.
+sw:gm
+    a prov:Entity;
+    prov:label "Geomagic Studio v12";
+.
+
+# Data Entities
+da:ctd
+    a prov:Entity;
+    prov:label "CT data of the patient with critical size defect";
+    da:fileType "DICOM";
+.
+da:nurbs_par
+    a prov:Entity;
+    prov:label "Parameters for NURBS approximation";
+.
+
+# Model Entities
+mo:r3d
+    a prov:Entity;
+    prov:wasGeneratedBy ma:generation:a1;
+    prov:label "Raw 3D Model with unwanted geometrical features";
+    da:fileType "STL";
+.
+mo:3d_1
+    a prov:Entity;
+    prov:wasGeneratedBy ma:refinement:a2;
+    prov:label "Smoothed and cleaned 3D Model v1";
+    da:fileType "STL";
+.
+mo:3d_2
+    a prov:Entity;
+    prov:wasGeneratedBy ma:refinement:a3;
+    prov:label "Smoothed and cleaned 3D Model v2";
+    da:fileType "STL";
+.
+mo:a3d
+    a prov:Entity;
+    prov:wasGeneratedBy ma:parametrisation:a4;
+    prov:label "Anatomical 3D CAD model of the mandible with NURBS surfaces";
+    da:fileType "IGES";
+.
+
+# Assumption Entities
+as:clean_surface
+    a prov:Entity;
+    prov:label "Surfaces are clean";
+.
+
+################################################################################
+# Agents
+ag:hr
+    a prov:Person, prov:Agent;
+    prov:actedOnBehalfOf ag:o:ur;
+    prov:qualifiedDelegation [
+        a prov:Delegation;
+        prov:agent ag:o:ur;
+        prov:hadRole ag:employer; 
+    ];
+    foaf:givenName "Hendrikje Raben"^^xsd:string;
+.
+ag:uz
+    a prov:Person, prov:Agent;
+    prov:actedOnBehalfOf ag:o:ur;
+    prov:qualifiedDelegation [
+        a prov:Delegation;
+        prov:agent ag:o:ur;
+        prov:hadRole ag:employer; 
+    ];
+    foaf:givenName "Ulf Zimmermann"^^xsd:string;
+.
+ag:o:ur
+    a prov:Organization, prov:Agent;
+    foaf:name "University of Rostock";
+.
+
+################################################################################
+# Activity 1
+ma:generation:a1
+    a prov:Activity;
+    prov:label "Register and Segment Slices";
+.
+ma:generation:a1 prov:qualifiedUsage [
+   a prov:Usage;
+   prov:entity  da:ctd;
+   prov:hadRole da:dataset;
+].
+ma:generation:a1 prov:qualifiedUsage [
+   a prov:Usage;
+   prov:entity  sw:mm;
+   prov:hadRole sw:softwareToModel;
+].
+ma:generation:a1 prov:qualifiedAssociation [
+    a  prov:Association;
+    prov:agent    ag:uz;
+    prov:hadRole  ag:modeler;
+].
+
+################################################################################
+# Activity 2
+ma:refinement:a2
+    a prov:Activity;
+    prov:label "Smooth and Clean 3D Model";
+.
+ma:refinement:a2 prov:qualifiedUsage [
+   a prov:Usage;
+   prov:entity  mo:r3d;
+   prov:hadRole mo:rawModel;
+].
+ma:refinement:a2 prov:qualifiedUsage [
+   a prov:Usage;
+   prov:entity  sw:gm;
+   prov:hadRole sw:softwareToRefine;
+].
+ma:refinement:a2 prov:qualifiedUsage [
+   a prov:Usage;
+   prov:entity  as:clean_surface;
+   prov:hadRole as:refinementAssumption;
+].
+ma:refinement:a2 prov:qualifiedAssociation [
+    a  prov:Association;
+    prov:agent    ag:uz;
+    prov:hadRole  ag:modeler;
+].
+
+################################################################################
+# Activity 3
+ma:refinement:a3
+    a prov:Activity;
+    prov:label "Smooth and Clean 3D Model";
+.
+ma:refinement:a3 prov:qualifiedUsage [
+   a prov:Usage;
+   prov:entity  mo:3d_1;
+   prov:hadRole mo:rawModel;
+].
+ma:refinement:a3 prov:qualifiedUsage [
+   a prov:Usage;
+   prov:entity  sw:gm;
+   prov:hadRole sw:softwareToRefine;
+].
+ma:refinement:a3 prov:qualifiedUsage [
+   a prov:Usage;
+   prov:entity  as:clean_surface;
+   prov:hadRole as:refinementAssumption;
+].
+ma:refinement:a3 prov:qualifiedAssociation [
+    a  prov:Association;
+    prov:agent    ag:hr;
+    prov:hadRole  ag:modeler;
+].
+
+################################################################################
+# Activity 4
+ma:parametrisation:a4
+    a prov:Activity;
+    prov:label "Convert 3D Model";
+.
+ma:parametrisation:a4 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity mo:3d_2;
+    prov:hadRole mo:model
+].
+ma:parametrisation:a4 prov:qualifiedUsage [
+   a prov:Usage;
+   prov:entity  sw:gm;
+   prov:hadRole sw:softwareToParametrise
+].
+ma:parametrisation:a4 prov:qualifiedUsage [
+   a prov:Usage;
+   prov:entity  da:nurbs_par;
+   prov:hadRole da:parameter
+].
+ma:parametrisation:a4 prov:qualifiedAssociation [
+    a  prov:Association;
+    prov:agent    ag:hr;
+    prov:hadRole  ag:modeler
+].

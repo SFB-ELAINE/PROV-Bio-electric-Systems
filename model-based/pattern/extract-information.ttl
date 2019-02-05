@@ -1,0 +1,55 @@
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix ma: <http://provenance.elaine.uni-rostock.de/ma>.
+@prefix as: <http://provenance.elaine.uni-rostock.de/as>.
+@prefix eq: <http://provenance.elaine.uni-rostock.de/eq>.
+@prefix lt: <http://provenance.elaine.uni-rostock.de/lt>.
+@prefix da: <http://provenance.elaine.uni-rostock.de/da>.
+@prefix ag: <http://provenance.elaine.uni-rostock.de/ag>.
+@prefix foaf: <http://xmlns.com/foaf/spec/#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+
+################################################################################
+# Data Entities
+da:stim_par
+    a prov:Entity;
+    prov:label "Stimulation parameters";
+.
+
+# Assumption Entities
+as:eqs
+    a prov:Entity;
+    prov:wasGeneratedBy ma:extract:rp;
+    prov:label "Electro-quasistatic assumptions";
+.
+
+# Literature Entities
+lt:p
+    a prov:Entity;
+    prov:label "Publication Plonsey";
+.
+
+
+################################################################################
+# Agents
+ag:hr
+    a prov:Person, prov:Agent;
+    foaf:givenName "Hendrikje Raben"^^xsd:string;
+.
+
+
+################################################################################
+# Read 3
+ma:extract:rp
+    a prov:Activity;
+    prov:label "Extract Information";
+    prov:used lt:p;
+    prov:wasAssociatedWith ag:hr;
+.
+ma:extract:rp prov:qualifiedUsage [
+   a prov:Usage;
+   prov:entity  da:stim_par;
+   prov:hadRole da:informationToFilter
+].

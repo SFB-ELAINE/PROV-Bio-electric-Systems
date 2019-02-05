@@ -1,0 +1,191 @@
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix sw: <http://provenance.elaine.uni-rostock.de/sw>.
+@prefix da: <http://provenance.elaine.uni-rostock.de/da>.
+@prefix ma: <http://provenance.elaine.uni-rostock.de/ma>.
+@prefix mo: <http://provenance.elaine.uni-rostock.de/mo>.
+@prefix eq: <http://provenance.elaine.uni-rostock.de/eq>.
+@prefix lt: <http://provenance.elaine.uni-rostock.de/lt>.
+@prefix as: <http://provenance.elaine.uni-rostock.de/as>.
+@prefix ag: <http://provenance.elaine.uni-rostock.de/ag>.
+@prefix foaf: <http://xmlns.com/foaf/spec/#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+
+################################################################################
+# Software Entities
+sw:cs
+    a prov:Entity;
+    prov:label "COMSOL Multiphysics v5.2a";
+.
+
+# Data Entities
+da:tissue_par
+    a prov:Entity;
+    prov:wasGeneratedBy ma:extract:r1;
+    prov:label "Parameters for tissue properties";
+.
+da:mesh_par
+    a prov:Entity;
+    prov:label "Parameters for mesh building";
+.
+da:stim_par
+    a prov:Entity;
+    prov:wasGeneratedBy ma:extract:r2;
+    prov:label "Stimulation parameters";
+.
+
+# Model Entities
+mo:a3d
+    a prov:Entity;
+    prov:label "Anatomical 3D CAD model of the mandible with NURBS surfaces";
+    da:fileType "IGES";
+.
+mo:el:left:a3d
+    a prov:Entity;
+    prov:label "3D CAD model of Screw with NURBS surfaces (left)";
+    da:fileType "IGES";
+.
+mo:el:right:a3d
+    a prov:Entity;
+    prov:label "3D CAD model of Screw with NURBS surfaces (right)";
+    da:fileType "IGES";
+.
+mo:sim-model
+    a prov:Entity;
+    prov:wasGeneratedBy ma:a10;
+    prov:label "Finite Element Simulation Model";
+    rdfs:comment "This is part of the COMSOL project file";
+    da:fileType "mph";
+.
+
+# Equation Entities
+eq:mw
+    a prov:Entity;
+    prov:label "Maxwell's equations";
+.
+eq:eqs
+    a prov:Entity;
+    prov:wasGeneratedBy ma:refinement:a7;
+    prov:label "Electro-quasistatic approximation of Maxwell's equations";
+.
+eq:bc
+    a prov:Entity;
+    prov:label "Boundary conditions"; # TODO: woher kommen diese?
+.
+
+# Literature Entities
+lt:gg
+    a prov:Entity;
+    prov:label "Publication Gabriel and Gabriel";
+.
+lt:k
+    a prov:Entity;
+    prov:label "Publication Kraus";
+.
+lt:p
+    a prov:Entity;
+    prov:label "Publication Plonsey";
+.
+
+# Assumption Entities
+as:eqs
+    a prov:Entity;
+    prov:wasGeneratedBy ma:extract:r3;
+    prov:label "Electro-quasistatic assumptions";
+.
+
+################################################################################
+# Agents
+ag:hr
+    a prov:Person, prov:Agent;
+    prov:actedOnBehalfOf ag:o:ur;
+    prov:qualifiedDelegation [
+        a prov:Delegation;
+        prov:agent ag:o:ur;
+        prov:hadRole ag:employer; 
+    ];
+    foaf:givenName "Hendrikje Raben"^^xsd:string;
+.
+ag:o:ur
+    a prov:Organization, prov:Agent;
+    foaf:name "University of Rostock";
+.
+
+################################################################################
+# Activity 7
+ma:refinement:a7
+    a prov:Activity;
+    prov:label "Mathematical Derivation";
+.
+ma:refinement:a7 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  eq:mw;
+    prov:hadRole mo:rawModel;
+].
+ma:refinement:a7 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  as:eqs;
+    prov:hadRole as:refinementAssumption;
+].
+ma:refinement:a7 prov:qualifiedAssociation [
+    a  prov:Association;
+    prov:agent    ag:hr;
+    prov:hadRole  ag:modeler;
+].
+
+################################################################################
+# Activity 10
+ma:a10
+    a prov:Activity;
+    prov:label "Creating Simulation Model";
+    rdfs:comment "This is a summarising activity of the process defined in 'simulation_models'. For that reason, roles are not defined here.";
+    prov:used mo:a3d;
+    prov:used mo:el:left:a3d;
+    prov:used mo:el:right:a3d;
+    prov:used eq:eqs;
+    prov:used eq:bc;
+    prov:used da:stim_par;
+    prov:used da:tissue_par;
+    prov:used da:mesh_par;
+    prov:used sw:cs;
+.
+ma:a10 prov:qualifiedAssociation [
+    a prov:Association;
+    prov:agent    ag:hr;
+    prov:hadRole  ag:modeler
+].
+
+################################################################################
+# Read 1
+ma:extract:r1
+    a prov:Activity;
+    prov:label "Extract Information";
+    prov:used lt:gg;
+    prov:wasAssociatedWith ag:hr;
+.
+
+################################################################################
+# Read 2
+ma:extract:r2
+    a prov:Activity;
+    prov:label "Extract Information";
+    prov:used lt:k;
+    prov:wasAssociatedWith ag:hr;
+.
+
+################################################################################
+# Read 3
+ma:extract:r3
+    a prov:Activity;
+    prov:label "Extract Information";
+    prov:used lt:p;
+    prov:wasAssociatedWith ag:hr;
+.
+ma:extract:r3 prov:qualifiedUsage [
+   a prov:Usage;
+   prov:entity  da:stim_par;
+   prov:hadRole da:informationToFilter
+].
+

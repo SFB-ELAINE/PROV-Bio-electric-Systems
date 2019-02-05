@@ -1,0 +1,71 @@
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix sw: <http://provenance.elaine.uni-rostock.de/sw>.
+@prefix ma: <http://provenance.elaine.uni-rostock.de/ma>.
+@prefix mo: <http://provenance.elaine.uni-rostock.de/mo>.
+@prefix da: <http://provenance.elaine.uni-rostock.de/da>.
+@prefix ag: <http://provenance.elaine.uni-rostock.de/ag>.
+@prefix foaf: <http://xmlns.com/foaf/spec/#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+
+################################################################################
+# Software Entities
+sw:cs
+    a prov:Entity;
+    prov:label "COMSOL Multiphysics v5.2a";
+.
+
+# Model Entities
+mo:a3d
+    a prov:Entity;
+    prov:label "Anatomical 3D CAD model of the mandible with NURBS surfaces";
+    da:fileType "IGES";
+.
+mo:el:left:a3d
+    a prov:Entity;
+    prov:label "3D CAD model of Screw with NURBS surfaces (left)";
+    da:fileType "IGES";
+.
+mo:geom
+    a prov:Entity;
+    prov:wasGeneratedBy ma:composition:a1;
+    prov:label "Geometrical 3D Model of composed Components";
+    rdfs:comment "This is part of the COMSOL project file";
+    da:fileType "mph";
+.
+
+################################################################################
+# Agents
+ag:hr
+    a prov:Person, prov:Agent;
+    foaf:givenName "Hendrikje Raben"^^xsd:string;
+.
+
+################################################################################
+# Activity 1
+ma:composition:a1
+    a prov:Activity;
+    prov:label "Modeling Geometry";
+.
+ma:composition:a1 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  mo:a3d;
+    prov:hadRole mo:modelToCompose
+].
+ma:composition:a1 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  mo:el:left:a3d;
+    prov:hadRole mo:modelToCompose
+].
+ma:composition:a1 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  sw:cs;
+    prov:hadRole sw:softwareToCompose
+].
+ma:composition:a1 prov:qualifiedAssociation [
+    a prov:Association;
+    prov:agent    ag:hr;
+    prov:hadRole  ag:modeler
+].

@@ -1,0 +1,62 @@
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix sw: <http://provenance.elaine.uni-rostock.de/sw>.
+@prefix da: <http://provenance.elaine.uni-rostock.de/da>.
+@prefix ma: <http://provenance.elaine.uni-rostock.de/ma>.
+@prefix mo: <http://provenance.elaine.uni-rostock.de/mo>.
+@prefix ag: <http://provenance.elaine.uni-rostock.de/ag>.
+@prefix foaf: <http://xmlns.com/foaf/spec/#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+
+################################################################################
+# Software Entities
+sw:mm
+    a prov:Entity;
+    prov:label "Materialise Mimics v19";
+.
+
+# Data Entities
+da:ctd
+    a prov:Entity;
+    prov:label "CT data of the patient with critical size defect";
+    da:fileType "DICOM";
+.
+
+# Model Entities
+mo:r3d
+    a prov:Entity;
+    prov:wasGeneratedBy ma:generation:a1;
+    prov:label "Raw 3D Model with unwanted geometrical features";
+    da:fileType "STL";
+.
+
+################################################################################
+# Agents
+ag:uz
+    a prov:Person, prov:Agent;
+    foaf:givenName "Ulf Zimmermann"^^xsd:string;
+.
+
+################################################################################
+# Activity 1
+ma:generation:a1
+    a prov:Activity;
+    prov:label "Register and Segment Slices";
+.
+ma:generation:a1 prov:qualifiedUsage [
+   a prov:Usage;
+   prov:entity  da:ctd;
+   prov:hadRole da:dataset;
+].
+ma:generation:a1 prov:qualifiedUsage [
+   a prov:Usage;
+   prov:entity  sw:mm;
+   prov:hadRole sw:softwareToModel;
+].
+ma:generation:a1 prov:qualifiedAssociation [
+    a  prov:Association;
+    prov:agent    ag:uz;
+    prov:hadRole  ag:modeler;
+].

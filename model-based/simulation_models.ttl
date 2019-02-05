@@ -1,0 +1,257 @@
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix sw: <http://provenance.elaine.uni-rostock.de/sw>.
+@prefix da: <http://provenance.elaine.uni-rostock.de/da>.
+@prefix ma:cs: <http://provenance.elaine.uni-rostock.de/ma>.
+@prefix mo: <http://provenance.elaine.uni-rostock.de/mo>.
+@prefix eq: <http://provenance.elaine.uni-rostock.de/eq>.
+@prefix ag: <http://provenance.elaine.uni-rostock.de/ag>.
+@prefix foaf: <http://xmlns.com/foaf/spec/#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+
+################################################################################
+# Software Entities
+sw:cs
+    a prov:Entity;
+    prov:label "COMSOL Multiphysics v5.2a";
+.
+
+# Data Entities
+da:tissue_par
+    a prov:Entity;
+    prov:label "Parameters for tissue properties";
+.
+da:mesh_par
+    a prov:Entity;
+    prov:label "Parameters for mesh building";
+.
+da:stim_par
+    a prov:Entity;
+    prov:label "Stimulation parameters";
+.
+
+# Model Entities
+mo:a3d
+    a prov:Entity;
+    prov:label "Anatomical 3D CAD model of the mandible with NURBS surfaces";
+    da:fileType "IGES";
+.
+mo:el:left:a3d
+    a prov:Entity;
+    prov:label "3D CAD model of Screw with NURBS surfaces (left)";
+    da:fileType "IGES";
+.
+mo:el:right:a3d
+    a prov:Entity;
+    prov:label "3D CAD model of Screw with NURBS surfaces (right)";
+    da:fileType "IGES";
+.
+mo:geom
+    a prov:Entity;
+    prov:wasGeneratedBy ma:composition:a1;
+    prov:label "Geometrical 3D Model of all Components";
+    rdfs:comment "This is part of the COMSOL project file";
+    da:fileType "mph";
+.
+mo:pvcm
+    a prov:Entity;
+    prov:wasGeneratedBy ma:parametrisation:a2;
+    prov:label "Physical VCM";
+    rdfs:comment "This is part of the COMSOL project file";
+    da:fileType "mph";
+.
+mo:pem
+    a prov:Entity;
+    prov:wasGeneratedBy ma:composition:a3;
+    prov:label "Physical Electrical Model";
+    rdfs:comment "This is part of the COMSOL project file";
+    da:fileType "mph";
+.
+mo:pe-mesh
+    a prov:Entity;
+    prov:wasGeneratedBy ma:parametrisation:a4;
+    prov:label "Physical Electrical Mesh";
+    rdfs:comment "This is part of the COMSOL project file";
+    da:fileType "mph";
+.
+mo:sim-model
+    a prov:Entity;
+    prov:wasGeneratedBy ma:parametrisation:a5;
+    prov:label "Finite Element Simulation Model";
+    rdfs:comment "This is part of the COMSOL project file";
+    da:fileType "mph";
+.
+
+# Equation Entities
+eq:eqs
+    a prov:Entity;
+    prov:label "Electro-quasistatic approximation of Maxwell`s equations";
+.
+eq:bc
+    a prov:Entity;
+    prov:label "Boundary conditions";
+.
+
+################################################################################
+# Agents
+ag:hr
+    a prov:Person, prov:Agent;
+    prov:actedOnBehalfOf ag:o:ur;
+    prov:qualifiedDelegation [
+        a prov:Delegation;
+        prov:agent ag:o:ur;
+        prov:hadRole ag:employer; 
+    ];
+    foaf:givenName "Hendrikje Raben"^^xsd:string;
+.
+ag:o:ur
+    a prov:Organization, prov:Agent;
+    foaf:name "University of Rostock";
+.
+
+################################################################################
+# Activity 1
+ma:composition:a1
+    a prov:Activity;
+    prov:label "Modeling Geometry";
+.
+ma:composition:a1 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  mo:a3d;
+    prov:hadRole mo:modelToCompose
+].
+ma:composition:a1 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  mo:el:left:a3d;
+    prov:hadRole mo:modelToCompose
+].
+ma:composition:a1 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  mo:el:right:a3d;
+    prov:hadRole mo:modelToCompose
+].
+ma:composition:a1 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  sw:cs;
+    prov:hadRole sw:softwareToCompose
+].
+ma:composition:a1 prov:qualifiedAssociation [
+    a prov:Association;
+    prov:agent    ag:hr;
+    prov:hadRole  ag:modeler
+].
+
+################################################################################
+# Activity 2
+ma:parametrisation:a2
+    a prov:Activity;
+    prov:label "Assigning Dielectric Tissue Properties";
+.
+ma:parametrisation:a2 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  mo:geom;
+    prov:hadRole mo:model
+].
+ma:parametrisation:a2 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  da:tissue_par;
+    prov:hadRole da:parameter
+].
+ma:parametrisation:a2 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  sw:cs;
+    prov:hadRole sw:softwareToParametrise
+].
+ma:parametrisation:a2 prov:qualifiedAssociation [
+    a prov:Association;
+    prov:agent    ag:hr;
+    prov:hadRole  ag:modeler
+].
+
+################################################################################
+# Activity 3
+ma:composition:a3
+    a prov:Activity;
+    prov:label "Defining Physics (Electric Currents)";
+.
+ma:composition:a3 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  mo:pvcm;
+    prov:hadRole mo:modelToCompose
+].
+ma:composition:a3 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  eq:eqs;
+    prov:hadRole mo:modelToCompose
+].
+ma:composition:a3 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  eq:bc;
+    prov:hadRole mo:modelToCompose
+].
+ma:composition:a3 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  sw:cs;
+    prov:hadRole sw:softwareToCompose
+].
+ma:composition:a3 prov:qualifiedAssociation [
+    a prov:Association;
+    prov:agent    ag:hr;
+    prov:hadRole  ag:modeler
+].
+
+################################################################################
+# Activity 4
+ma:parametrisation:a4
+    a prov:Activity;
+    prov:label "Building the Mesh";
+.
+ma:parametrisation:a4 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  mo:pem;
+    prov:hadRole mo:model
+].
+ma:parametrisation:a4 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  da:mesh_par;
+    prov:hadRole da:parameter
+].
+ma:parametrisation:a4 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  sw:cs;
+    prov:hadRole sw:softwareToParametrise
+].
+ma:parametrisation:a4 prov:qualifiedAssociation [
+    a prov:Association;
+    prov:agent    ag:hr;
+    prov:hadRole  ag:modeler
+].
+
+################################################################################
+# Activity 5
+ma:parametrisation:a5
+    a prov:Activity;
+    prov:label "Assigning Finite Element Simulation Parameters";
+.
+ma:parametrisation:a5 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  mo:pe-mesh;
+    prov:hadRole mo:model
+].
+ma:parametrisation:a5 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  da:stim_par;
+    prov:hadRole da:parameter
+].
+ma:parametrisation:a5 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  sw:cs;
+    prov:hadRole sw:softwareToParametrise
+].
+ma:parametrisation:a5 prov:qualifiedAssociation [
+    a  prov:Association;
+    prov:agent    ag:hr;
+    prov:hadRole  ag:modeler
+].

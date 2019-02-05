@@ -1,0 +1,73 @@
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix sw: <http://provenance.elaine.uni-rostock.de/sw>.
+@prefix da: <http://provenance.elaine.uni-rostock.de/da>.
+@prefix ma: <http://provenance.elaine.uni-rostock.de/ma>.
+@prefix mo: <http://provenance.elaine.uni-rostock.de/mo>.
+@prefix ag: <http://provenance.elaine.uni-rostock.de/ag>.
+@prefix foaf: <http://xmlns.com/foaf/spec/#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+
+################################################################################
+# Software Entities
+sw:cs
+    a prov:Entity;
+    prov:label "COMSOL Multiphysics v5.2a";
+.
+
+# Data Entities
+da:tissue_par
+    a prov:Entity;
+    prov:label "Parameters for tissue properties";
+.
+
+# Model Entities
+mo:geom
+    a prov:Entity;
+    prov:label "Geometrical 3D Model of all Components";
+    rdfs:comment "This is part of the COMSOL project file";
+    da:fileType "mph";
+.
+mo:pvcm
+    a prov:Entity;
+    prov:wasGeneratedBy ma:parametrisation:a2;
+    prov:label "Physical VCM";
+    rdfs:comment "This is part of the COMSOL project file";
+    da:fileType "mph";
+.
+
+################################################################################
+# Agents
+ag:hr
+    a prov:Person, prov:Agent;
+    foaf:givenName "Hendrikje Raben"^^xsd:string;
+.
+
+################################################################################
+# Activity 2
+ma:parametrisation:a2
+    a prov:Activity;
+    prov:label "Assigning Dielectric Tissue Properties";
+.
+ma:parametrisation:a2 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  mo:geom;
+    prov:hadRole mo:model
+].
+ma:parametrisation:a2 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  da:tissue_par;
+    prov:hadRole da:parameter
+].
+ma:parametrisation:a2 prov:qualifiedUsage [
+    a prov:Usage;
+    prov:entity  sw:cs;
+    prov:hadRole sw:softwareToParametrise
+].
+ma:parametrisation:a2 prov:qualifiedAssociation [
+    a prov:Association;
+    prov:agent    ag:hr;
+    prov:hadRole  ag:modeler
+].
