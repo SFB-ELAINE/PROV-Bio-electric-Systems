@@ -1,0 +1,298 @@
+digraph G {
+charset="utf-8";
+rankdir=BT;
+n1 [URL="http://provenance.elaine.uni-rostock.de/eqeqs", color="#808080", fillcolor="#FFFC87", label="eq:eqs", shape=oval, style=filled];
+ann1 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Electro-quasistatic approximation of Maxwell&#x27;s equations</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann1 -> n1  [arrowhead=none, color=gray, style=dashed];
+n2 [URL="http://provenance.elaine.uni-rostock.de/marefinement:a7", color="#0000FF", fillcolor="#9FB1FC", label="ma:refinement:a7", shape=box, style=filled];
+ann2 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Mathematical Derivation</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann2 -> n2  [arrowhead=none, color=gray, style=dashed];
+n3 [URL="http://provenance.elaine.uni-rostock.de/damesh_par", color="#808080", fillcolor="#FFFC87", label="da:mesh_par", shape=oval, style=filled];
+ann3 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Parameters for mesh building</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann3 -> n3  [arrowhead=none, color=gray, style=dashed];
+n4 [URL="http://provenance.elaine.uni-rostock.de/maextract:r1", color="#0000FF", fillcolor="#9FB1FC", label="ma:extract:r1", shape=box, style=filled];
+ann4 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Extract Information</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann4 -> n4  [arrowhead=none, color=gray, style=dashed];
+n5 [URL="http://provenance.elaine.uni-rostock.de/aghr", fillcolor="#FED37F", label="ag:hr", shape=house, style=filled];
+ann5 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#type">prov:type</TD>
+        <TD align="left" href="http://www.w3.org/ns/prov#Person">prov:Person</TD>
+    </TR>
+    <TR>
+        <TD align="left" href="http://xmlns.com/foaf/spec/#givenName">foaf:givenName</TD>
+        <TD align="left">Hendrikje Raben</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann5 -> n5  [arrowhead=none, color=gray, style=dashed];
+n6 [URL="http://provenance.elaine.uni-rostock.de/moa3d", color="#808080", fillcolor="#FFFC87", label="mo:a3d", shape=oval, style=filled];
+ann6 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Anatomical 3D CAD model of the mandible with NURBS surfaces</TD>
+    </TR>
+    <TR>
+        <TD align="left" href="http://provenance.elaine.uni-rostock.de/dafileType">da:fileType</TD>
+        <TD align="left">IGES</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann6 -> n6  [arrowhead=none, color=gray, style=dashed];
+n7 [URL="http://provenance.elaine.uni-rostock.de/ltgg", color="#808080", fillcolor="#FFFC87", label="lt:gg", shape=oval, style=filled];
+ann7 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Publication Gabriel and Gabriel</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann7 -> n7  [arrowhead=none, color=gray, style=dashed];
+n8 [URL="http://provenance.elaine.uni-rostock.de/mosim-model", color="#808080", fillcolor="#FFFC87", label="mo:sim-model", shape=oval, style=filled];
+ann8 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Finite Element Simulation Model</TD>
+    </TR>
+    <TR>
+        <TD align="left" href="http://provenance.elaine.uni-rostock.de/dafileType">da:fileType</TD>
+        <TD align="left">mph</TD>
+    </TR>
+    <TR>
+        <TD align="left" href="http://www.w3.org/2000/01/rdf-schema#comment">rdfs:comment</TD>
+        <TD align="left">This is part of the COMSOL project file</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann8 -> n8  [arrowhead=none, color=gray, style=dashed];
+n9 [URL="http://provenance.elaine.uni-rostock.de/ltk", color="#808080", fillcolor="#FFFC87", label="lt:k", shape=oval, style=filled];
+ann9 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Publication Kraus</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann9 -> n9  [arrowhead=none, color=gray, style=dashed];
+n10 [URL="http://provenance.elaine.uni-rostock.de/moel:left:a3d", color="#808080", fillcolor="#FFFC87", label="mo:el:left:a3d", shape=oval, style=filled];
+ann10 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">3D CAD model of Screw with NURBS surfaces (left)</TD>
+    </TR>
+    <TR>
+        <TD align="left" href="http://provenance.elaine.uni-rostock.de/dafileType">da:fileType</TD>
+        <TD align="left">IGES</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann10 -> n10  [arrowhead=none, color=gray, style=dashed];
+n11 [URL="http://provenance.elaine.uni-rostock.de/ltp", color="#808080", fillcolor="#FFFC87", label="lt:p", shape=oval, style=filled];
+ann11 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Publication Plonsey</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann11 -> n11  [arrowhead=none, color=gray, style=dashed];
+n12 [URL="http://provenance.elaine.uni-rostock.de/swcs", color="#808080", fillcolor="#FFFC87", label="sw:cs", shape=oval, style=filled];
+ann12 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">COMSOL Multiphysics v5.2a</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann12 -> n12  [arrowhead=none, color=gray, style=dashed];
+n13 [URL="http://provenance.elaine.uni-rostock.de/moel:right:a3d", color="#808080", fillcolor="#FFFC87", label="mo:el:right:a3d", shape=oval, style=filled];
+ann13 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">3D CAD model of Screw with NURBS surfaces (right)</TD>
+    </TR>
+    <TR>
+        <TD align="left" href="http://provenance.elaine.uni-rostock.de/dafileType">da:fileType</TD>
+        <TD align="left">IGES</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann13 -> n13  [arrowhead=none, color=gray, style=dashed];
+n14 [URL="http://provenance.elaine.uni-rostock.de/maextract:r3", color="#0000FF", fillcolor="#9FB1FC", label="ma:extract:r3", shape=box, style=filled];
+ann14 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Extract Information</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann14 -> n14  [arrowhead=none, color=gray, style=dashed];
+n15 [URL="http://provenance.elaine.uni-rostock.de/aseqs", color="#808080", fillcolor="#FFFC87", label="as:eqs", shape=oval, style=filled];
+ann15 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Electro-quasistatic assumptions</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann15 -> n15  [arrowhead=none, color=gray, style=dashed];
+n16 [URL="http://provenance.elaine.uni-rostock.de/eqbc", color="#808080", fillcolor="#FFFC87", label="eq:bc", shape=oval, style=filled];
+ann16 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Boundary conditions</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann16 -> n16  [arrowhead=none, color=gray, style=dashed];
+n17 [URL="http://provenance.elaine.uni-rostock.de/dastim_par", color="#808080", fillcolor="#FFFC87", label="da:stim_par", shape=oval, style=filled];
+ann17 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Stimulation parameters</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann17 -> n17  [arrowhead=none, color=gray, style=dashed];
+n18 [URL="http://provenance.elaine.uni-rostock.de/datissue_par", color="#808080", fillcolor="#FFFC87", label="da:tissue_par", shape=oval, style=filled];
+ann18 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Parameters for tissue properties</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann18 -> n18  [arrowhead=none, color=gray, style=dashed];
+n19 [URL="http://provenance.elaine.uni-rostock.de/maextract:r2", color="#0000FF", fillcolor="#9FB1FC", label="ma:extract:r2", shape=box, style=filled];
+ann19 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Extract Information</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann19 -> n19  [arrowhead=none, color=gray, style=dashed];
+n20 [URL="http://provenance.elaine.uni-rostock.de/maa10", color="#0000FF", fillcolor="#9FB1FC", label="ma:a10", shape=box, style=filled];
+ann20 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Creating Simulation Model</TD>
+    </TR>
+    <TR>
+        <TD align="left" href="http://www.w3.org/2000/01/rdf-schema#comment">rdfs:comment</TD>
+        <TD align="left">This is a summarising activity of the process defined in &#x27;simulation_models&#x27;. For that reason, roles are not defined here.</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann20 -> n20  [arrowhead=none, color=gray, style=dashed];
+n21 [URL="http://provenance.elaine.uni-rostock.de/eqmw", color="#808080", fillcolor="#FFFC87", label="eq:mw", shape=oval, style=filled];
+ann21 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Maxwell&#x27;s equations</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann21 -> n21  [arrowhead=none, color=gray, style=dashed];
+n22 [URL="http://provenance.elaine.uni-rostock.de/ago:ur", fillcolor="#FED37F", label="ag:o:ur", shape=house, style=filled];
+ann22 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#type">prov:type</TD>
+        <TD align="left" href="http://www.w3.org/ns/prov#Organization">prov:Organization</TD>
+    </TR>
+    <TR>
+        <TD align="left" href="http://xmlns.com/foaf/spec/#name">foaf:name</TD>
+        <TD align="left">University of Rostock</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann22 -> n22  [arrowhead=none, color=gray, style=dashed];
+b1 [color=gray, label="", shape=point];
+n14 -> b1  [arrowhead=none, color="#FED37F", fontsize="10.0", label=wasAssociatedWith];
+b1 -> n5  [color="#FED37F", fontsize="10.0"];
+n14 -> n11  [color=red4, fontcolor=red, fontsize="10.0", label=used];
+n17 -> n19  [color=darkgreen, fontcolor=darkgreen, fontsize="10.0", label=wasGeneratedBy];
+n4 -> n7  [color=red4, fontcolor=red, fontsize="10.0", label=used];
+n20 -> n12  [color=red4, fontcolor=red, fontsize="10.0", label=used];
+n20 -> n18  [color=red4, fontcolor=red, fontsize="10.0", label=used];
+b2 [color=gray, label="", shape=point];
+n4 -> b2  [arrowhead=none, color="#FED37F", fontsize="10.0", label=wasAssociatedWith];
+b2 -> n5  [color="#FED37F", fontsize="10.0"];
+n19 -> n9  [color=red4, fontcolor=red, fontsize="10.0", label=used];
+n20 -> n6  [color=red4, fontcolor=red, fontsize="10.0", label=used];
+n18 -> n4  [color=darkgreen, fontcolor=darkgreen, fontsize="10.0", label=wasGeneratedBy];
+n8 -> n20  [color=darkgreen, fontcolor=darkgreen, fontsize="10.0", label=wasGeneratedBy];
+b3 [color=gray, label="", shape=point];
+n19 -> b3  [arrowhead=none, color="#FED37F", fontsize="10.0", label=wasAssociatedWith];
+b3 -> n5  [color="#FED37F", fontsize="10.0"];
+n20 -> n13  [color=red4, fontcolor=red, fontsize="10.0", label=used];
+n20 -> n16  [color=red4, fontcolor=red, fontsize="10.0", label=used];
+n20 -> n17  [color=red4, fontcolor=red, fontsize="10.0", label=used];
+n20 -> n3  [color=red4, fontcolor=red, fontsize="10.0", label=used];
+n20 -> n10  [color=red4, fontcolor=red, fontsize="10.0", label=used];
+n15 -> n14  [color=darkgreen, fontcolor=darkgreen, fontsize="10.0", label=wasGeneratedBy];
+n1 -> n2  [color=darkgreen, fontcolor=darkgreen, fontsize="10.0", label=wasGeneratedBy];
+n20 -> n1  [color=red4, fontcolor=red, fontsize="10.0", label=used];
+b4 [color=gray, label="", shape=point];
+n20 -> b4  [arrowhead=none, color="#FED37F", fontsize="10.0", label=wasAssociatedWith];
+b4 -> n5  [color="#FED37F", fontsize="10.0"];
+ann23 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#role">prov:role</TD>
+        <TD align="left" href="http://provenance.elaine.uni-rostock.de/agmodeler">ag:modeler</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann23 -> b4  [arrowhead=none, color=gray, style=dashed];
+b5 [color=gray, label="", shape=point];
+n14 -> b5  [arrowhead=none, color=red4, fontcolor=red, fontsize="10.0", label=used];
+b5 -> n17  [color=red4, fontcolor=red, fontsize="10.0"];
+ann24 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#role">prov:role</TD>
+        <TD align="left" href="http://provenance.elaine.uni-rostock.de/dainformationToFilter">da:informationToFilter</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann24 -> b5  [arrowhead=none, color=gray, style=dashed];
+b6 [color=gray, label="", shape=point];
+n2 -> b6  [arrowhead=none, color=red4, fontcolor=red, fontsize="10.0", label=used];
+b6 -> n21  [color=red4, fontcolor=red, fontsize="10.0"];
+ann25 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#role">prov:role</TD>
+        <TD align="left" href="http://provenance.elaine.uni-rostock.de/morawModel">mo:rawModel</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann25 -> b6  [arrowhead=none, color=gray, style=dashed];
+b7 [color=gray, label="", shape=point];
+n2 -> b7  [arrowhead=none, color=red4, fontcolor=red, fontsize="10.0", label=used];
+b7 -> n15  [color=red4, fontcolor=red, fontsize="10.0"];
+ann26 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#role">prov:role</TD>
+        <TD align="left" href="http://provenance.elaine.uni-rostock.de/asrefinementAssumption">as:refinementAssumption</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann26 -> b7  [arrowhead=none, color=gray, style=dashed];
+b8 [color=gray, label="", shape=point];
+n2 -> b8  [arrowhead=none, color="#FED37F", fontsize="10.0", label=wasAssociatedWith];
+b8 -> n5  [color="#FED37F", fontsize="10.0"];
+ann27 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#role">prov:role</TD>
+        <TD align="left" href="http://provenance.elaine.uni-rostock.de/agmodeler">ag:modeler</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann27 -> b8  [arrowhead=none, color=gray, style=dashed];
+b9 [color=gray, label="", shape=point];
+n5 -> b9  [arrowhead=none, color="#FED37F", fontsize="10.0", label=actedOnBehalfOf];
+b9 -> n22  [color="#FED37F", fontsize="10.0"];
+ann28 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#role">prov:role</TD>
+        <TD align="left" href="http://provenance.elaine.uni-rostock.de/agemployer">ag:employer</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann28 -> b9  [arrowhead=none, color=gray, style=dashed];
+}

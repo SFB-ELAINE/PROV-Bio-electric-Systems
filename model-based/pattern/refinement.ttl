@@ -15,7 +15,7 @@
 # Software Entities
 sw:gm
     a prov:Entity;
-    prov:label "Geomagic Studio v12";
+    prov:label "GEOMAGIC Studio v12";
 .
 
 # Model Entities

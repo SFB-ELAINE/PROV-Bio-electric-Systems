@@ -1,0 +1,63 @@
+digraph G {
+charset="utf-8";
+rankdir=BT;
+n1 [URL="http://provenance.elaine.uni-rostock.de/maextract:rp", color="#0000FF", fillcolor="#9FB1FC", label="ma:extract:rp", shape=box, style=filled];
+ann1 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Extract Information</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann1 -> n1  [arrowhead=none, color=gray, style=dashed];
+n2 [URL="http://provenance.elaine.uni-rostock.de/ltp", color="#808080", fillcolor="#FFFC87", label="lt:p", shape=oval, style=filled];
+ann2 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Publication Plonsey</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann2 -> n2  [arrowhead=none, color=gray, style=dashed];
+n3 [URL="http://provenance.elaine.uni-rostock.de/aghr", fillcolor="#FED37F", label="ag:hr", shape=house, style=filled];
+ann3 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#type">prov:type</TD>
+        <TD align="left" href="http://www.w3.org/ns/prov#Person">prov:Person</TD>
+    </TR>
+    <TR>
+        <TD align="left" href="http://xmlns.com/foaf/spec/#givenName">foaf:givenName</TD>
+        <TD align="left">Hendrikje Raben</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann3 -> n3  [arrowhead=none, color=gray, style=dashed];
+n4 [URL="http://provenance.elaine.uni-rostock.de/aseqs", color="#808080", fillcolor="#FFFC87", label="as:eqs", shape=oval, style=filled];
+ann4 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Electro-quasistatic assumptions</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann4 -> n4  [arrowhead=none, color=gray, style=dashed];
+n5 [URL="http://provenance.elaine.uni-rostock.de/dastim_par", color="#808080", fillcolor="#FFFC87", label="da:stim_par", shape=oval, style=filled];
+ann5 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#label">prov:label</TD>
+        <TD align="left">Stimulation parameters</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann5 -> n5  [arrowhead=none, color=gray, style=dashed];
+b1 [color=gray, label="", shape=point];
+n1 -> b1  [arrowhead=none, color="#FED37F", fontsize="10.0", label=wasAssociatedWith];
+b1 -> n3  [color="#FED37F", fontsize="10.0"];
+n4 -> n1  [color=darkgreen, fontcolor=darkgreen, fontsize="10.0", label=wasGeneratedBy];
+n1 -> n2  [color=red4, fontcolor=red, fontsize="10.0", label=used];
+b2 [color=gray, label="", shape=point];
+n1 -> b2  [arrowhead=none, color=red4, fontcolor=red, fontsize="10.0", label=used];
+b2 -> n5  [color=red4, fontcolor=red, fontsize="10.0"];
+ann6 [color=gray, fontcolor=black, fontsize=10, label=<<TABLE cellpadding="0" border="0">
+    <TR>
+        <TD align="left" href="http://www.w3.org/ns/prov#role">prov:role</TD>
+        <TD align="left" href="http://provenance.elaine.uni-rostock.de/dainformationToFilter">da:informationToFilter</TD>
+    </TR>
+    </TABLE>>, shape=note];
+ann6 -> b2  [arrowhead=none, color=gray, style=dashed];
+}

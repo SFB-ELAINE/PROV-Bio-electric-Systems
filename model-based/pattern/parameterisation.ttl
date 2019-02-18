@@ -32,7 +32,7 @@ mo:geom
 .
 mo:pvcm
     a prov:Entity;
-    prov:wasGeneratedBy ma:parametrisation:a2;
+    prov:wasGeneratedBy ma:parameterisation:a2;
     prov:label "Physical VCM";
     rdfs:comment "This is part of the COMSOL project file";
     da:fileType "mph";
@@ -47,26 +47,26 @@ ag:hr
 
 ################################################################################
 # Activity 2
-ma:parametrisation:a2
+ma:parameterisation:a2
     a prov:Activity;
     prov:label "Assigning Dielectric Tissue Properties";
 .
-ma:parametrisation:a2 prov:qualifiedUsage [
+ma:parameterisation:a2 prov:qualifiedUsage [
     a prov:Usage;
     prov:entity  mo:geom;
     prov:hadRole mo:model
 ].
-ma:parametrisation:a2 prov:qualifiedUsage [
+ma:parameterisation:a2 prov:qualifiedUsage [
     a prov:Usage;
     prov:entity  da:tissue_par;
     prov:hadRole da:parameter
 ].
-ma:parametrisation:a2 prov:qualifiedUsage [
+ma:parameterisation:a2 prov:qualifiedUsage [
     a prov:Usage;
     prov:entity  sw:cs;
-    prov:hadRole sw:softwareToParametrise
+    prov:hadRole sw:softwareToParameterise
 ].
-ma:parametrisation:a2 prov:qualifiedAssociation [
+ma:parameterisation:a2 prov:qualifiedAssociation [
     a prov:Association;
     prov:agent    ag:hr;
     prov:hadRole  ag:modeler
