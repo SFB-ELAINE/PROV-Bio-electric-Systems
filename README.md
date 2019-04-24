@@ -32,3 +32,7 @@ Alternatively, launch this repository in mybinder.org:
 This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/), please attribute them as:
 
 Max Schröder, Hendrikje Raben, Frank Krüger, Andreas Ruscheinski, Ursula van Rienen, Adelinde Uhrmacher, and Sascha Spors, “PROVenace Models for Bio-electric Systems,” https://github.com/SFB-ELAINE/PROV-Bio-electric-Systems
+
+In order to cite a specific release tag, please use the Zenodo reference:
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2650138.svg)](https://doi.org/10.5281/zenodo.2650138)
