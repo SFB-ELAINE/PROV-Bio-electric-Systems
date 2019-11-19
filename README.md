@@ -3,7 +3,7 @@
 A collection of W3C PROVenance models for the numerical modelling and finite element simulation processes of bio-electric systems.
 Details about these models can be found in
 
-M. Schröder, H. Raben, F. Krüger, A. Ruscheinski, U. van Rienen, A. Uhrmacher, and S. Spors, “PROVenance Patterns in Numerical Modelling and Finite Element Simulation  Processes of Bio-electric Systems,” 41st Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC), Jul. 2019. To Appear.
+M. Schröder, H. Raben, F. Krüger, A. Ruscheinski, U. van Rienen, A. Uhrmacher, and S. Spors, “PROVenance Patterns in Numerical Modelling and Finite Element Simulation  Processes of Bio-electric Systems,” 41st Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC), Jul. 2019. doi:10.1109/EMBC.2019.8856841
 
 ## Usage
 
